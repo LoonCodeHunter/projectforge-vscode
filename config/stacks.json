@@ -1,0 +1,8 @@
+{
+  "web": ["react-ts-advanced", "nextjs-fullstack", "vanilla-html-css-js"],
+  "backend": ["express-ts-api", "fastapi-python", "nestjs-api"],
+  "bots": ["discord-bot-ts", "telegram-bot-py"],
+  "desktop": ["electron-react", "tauri-rust-react"],
+  "monorepo": ["turborepo-ts", "pnpm-workspaces-multi-app"],
+  "extension": ["vscode-extension-ts-template"]
+}

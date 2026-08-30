@@ -1,0 +1,92 @@
+{
+  "name": "projectforge-vscode",
+  "displayName": "ProjectForge",
+  "description": "Enterprise-grade project scaffolding engine for VS Code.",
+  "version": "0.1.0",
+  "publisher": "looncodehunter",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other", "Programming Languages", "Productivity"],
+  "activationEvents": [
+    "onCommand:projectforge.createProject",
+    "onCommand:projectforge.upgradeProject",
+    "onCommand:projectforge.openWizard",
+    "onCommand:projectforge.healthCheck"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "projectforge.createProject",
+        "title": "ProjectForge: Create New Project"
+      },
+      {
+        "command": "projectforge.upgradeProject",
+        "title": "ProjectForge: Upgrade Existing Project"
+      },
+      {
+        "command": "projectforge.openWizard",
+        "title": "ProjectForge: Open Project Wizard"
+      },
+      {
+        "command": "projectforge.healthCheck",
+        "title": "ProjectForge: Run Health Check"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "ProjectForge Settings",
+      "properties": {
+        "projectforge.enableAI": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable AI-assisted project generation (experimental)."
+        },
+        "projectforge.defaultPackageManager": {
+          "type": "string",
+          "enum": ["npm", "pnpm", "yarn", "bun"],
+          "default": "npm",
+          "description": "Default package manager for generated projects."
+        },
+        "projectforge.showAdvancedTemplates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show advanced templates such as monorepos and full-stack stacks."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "tsc -w -p tsconfig.build.json",
+    "lint": "eslint src --ext .ts",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run tests/unit --config vitest.unit.config.ts",
+    "test:integration": "vitest run tests/integration --config vitest.integration.config.ts",
+    "prepare": "husky install",
+    "package": "node scripts/package.ts",
+    "release": "node scripts/release.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "vitest": "^1.5.0",
+    "ts-node": "^10.9.2",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "yaml": "^2.4.0",
+    "glob": "^10.3.0",
+    "execa": "^8.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "fullstack-react-api": {
+    "web": "react-ts-advanced",
+    "backend": "express-ts-api",
+    "extras": ["eslint", "prettier", "docker", "github-actions"]
+  }
+}

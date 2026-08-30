@@ -1,0 +1,5 @@
+{
+  "defaultPackageManager": "npm",
+  "enableAI": false,
+  "showAdvancedTemplates": true
+}
